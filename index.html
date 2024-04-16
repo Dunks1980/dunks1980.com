@@ -1,11 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script src="main.js" type="module" defer></script>
+  <style>
+    /* add some reset styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    @font-face {
+      font-family: 'Montserrat-Regular';
+      src: url('../fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+
+    body {
+      color: #d1d1d1;
+      background: #1d1d20;
+      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'Montserrat-Regular';
+      line-height: 1.6;
+    }
+
+    noscript {
+      display: block;
+      padding: 20px;
+      background: #ff0000;
+      color: #fff;
+      text-align: center;
+    }
+
+    d-welcome {
+      display: block;
+      width: 470px;
+      height: auto;
+      align-self: self-end;
+      justify-self: self-start;
+      margin-bottom: 1rem;
+    }
+
+    .main-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 10px;
+      padding: 20px;
+      max-width: 1000px;
+      gap: 0rem 4rem;
+    }
+
+    p {
+      font-size: .9rem;
+      margin-bottom: 1rem;
+      max-width: 65ch;
+    }
+  </style>
 </head>
+
 <body>
-  test doc
+
+
+  <div bay-hydrate>
+    <noscript>
+      This site requires JavaScript to be enabled. Please enable JavaScript in your browser settings and try again.
+    </noscript>
+    <template>
+
+      <div class="main-wrap">
+
+        <div class="main-grid">
+
+          <d-welcome prop-color="#cccccc"></d-welcome>
+          <div>tr</div>
+          <div>
+            <p>My name is Ian Dunkerley, I'm a front-end developer based in Torquay, Devon, UK. I have developed many
+              types
+              of front-ends from well know DJ applications to Ecommerce booking platforms.</p>
+            <p>I'm passionate about cutting-edge, pixel-perfect, beautiful interfaces and intuitively implemented UX.
+            </p>
+          </div>
+          <div>br</div>
+
+        </div>
+
+      </div>
+    </template>
+  </div>
 </body>
+
 </html>
