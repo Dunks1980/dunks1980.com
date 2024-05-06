@@ -360,18 +360,6 @@
         <div class="card ${this.flip}">
           <div class="face front">
             <div class="whole-container">
-              <!-- <svg class="top-left-svg" width="300" height="300" xmlns="http://www.w3.org/2000/svg"
-                style="pointer-events:none">
-                <defs>
-                  <linearGradient id="grad1front" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0" class="${this.frontProject}"></stop>
-                    <stop offset=".5" class="${this.frontProject}"></stop>
-                    <stop offset="1" class="${this.frontProject}"></stop>
-                  </linearGradient>
-                </defs>
-                <path fill="url('#grad1front')" d="M8 0h292l-20 20H25a5 5 0 0 0-5 5v255L0 300V8a8 8 0 0 1 8-8Z">
-                </path>
-              </svg> -->
               <Header></Header>
               <div class="main-wrap">
                 <div class="main-grid">
@@ -403,33 +391,10 @@
                 </div>
               </div>
               <Footer></Footer>
-              <!-- <svg class="bottom-right-svg" width="300" height="300" xmlns="http://www.w3.org/2000/svg"
-                style="pointer-events:none">
-                <defs>
-                  <linearGradient id="grad2front" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0" class="${this.frontProject}"></stop>
-                    <stop offset=".5" class="${this.frontProject}"></stop>
-                    <stop offset="1" class="${this.frontProject}"></stop>
-                  </linearGradient>
-                </defs>
-                <path fill="url('#grad2front')" d="M292 300H0l20-20h255a5 5 0 0 0 5-5V20l20-20v292a8 8 0 0 1-8 8Z">
-                </path>
-              </svg> -->
             </div>
           </div>
           <div class="face back">
             <div class="whole-container">
-              <!-- <svg class="top-left-svg" width="300" height="300" xmlns="http://www.w3.org/2000/svg"
-                style="pointer-events:none">
-                <defs>
-                  <linearGradient id="grad1back" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0" class="${this.backProject}"></stop>
-                    <stop offset=".5" class="${this.backProject}"></stop>
-                    <stop offset="1" class="${this.backProject}"></stop>
-                  </linearGradient>
-                </defs>
-                <path fill="url('#grad1back')" d="M8 0h292l-20 20H25a5 5 0 0 0-5 5v255L0 300V8a8 8 0 0 1 8-8Z"></path>
-              </svg> -->
               <Header></Header>
               <div class="main-wrap">
                 <div class="main-grid">
@@ -461,18 +426,6 @@
                 </div>
               </div>
               <Footer></Footer>
-              <!-- <svg class="bottom-right-svg" width="300" height="300" xmlns="http://www.w3.org/2000/svg"
-                style="pointer-events:none">
-                <defs>
-                  <linearGradient id="grad2back" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0" class="${this.backProject}"></stop>
-                    <stop offset=".5" class="${this.backProject}"></stop>
-                    <stop offset="1" class="${this.backProject}"></stop>
-                  </linearGradient>
-                </defs>
-                <path fill="url('#grad2back')" d="M292 300H0l20-20h255a5 5 0 0 0 5-5V20l20-20v292a8 8 0 0 1-8 8Z">
-                </path>
-              </svg> -->
             </div>
           </div>
         </div>
@@ -565,14 +518,8 @@
           <svg xmlns="http://www.w3.org/2000/svg" id="welcome" width="6.30667in" height="1.27333in" viewBox="0 0 1892 382"></svg>
         </d-welcome>
         <div>
-          <p>My name is Ian Dunkerley, I'm a front-end developer based in Torquay, Devon, UK. I have
-            developed
-            many
-            types
-            of front-ends from well know DJ applications to Ecommerce booking platforms.</p>
-          <p>I'm passionate about cutting-edge, pixel-perfect, beautiful interfaces and intuitively
-            implemented UX.
-          </p>
+          <p>My name is Ian Dunkerley, I'm a front-end developer based in Torquay, Devon, UK. I have developed many types of front-ends from well know DJ applications to Ecommerce booking platforms.</p>
+          <p>I'm passionate about cutting-edge, pixel-perfect, beautiful interfaces and intuitively implemented UX.</p>
         </div>
       </define>
 
@@ -638,7 +585,6 @@
             return;
           }
           this.currentProject = val;
-          //console.log(this.currentProject, val);
           if (this.flip === 'flip-back') {
             this.frontProject = val;
             setTimeout(() => {
