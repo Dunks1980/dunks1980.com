@@ -26,7 +26,7 @@
 
     body {
       color: #d1d1d1;
-      background: #1d1d20;
+      background: #5b5c60;
       font-family: Arial, Helvetica, sans-serif;
       font-family: 'Montserrat-Regular';
       line-height: 1.6;
@@ -59,17 +59,48 @@
       display: grid;
       grid-template-rows: auto 1fr auto;
       height: auto;
-      background: #1d1d20;
+      background: rgb(29, 29, 32);
       max-height: 100vh;
-      padding: 3rem;
+      padding: 2.5rem;
       position: relative;
-      margin: 2rem;
+      margin: 2rem;  
+    }
+
+    :root {
+      --cX: 0vw;
+      --cY: 0vh;
+    }
+
+    .whole-container {
+      content: '';
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 960px;
+      /* max-height: 80vh; */
+      /* max-height: initial; */
+      position: fixed;
+      border: 2px solid #7c7d81;
+      border-radius: 2rem;
+      background: radial-gradient(
+        circle 40vmax at var(--cX) var(--cY),
+        rgb(26, 26, 29) 0%,
+        rgb(10, 10, 10) 100%
+      );
+      box-shadow: var(--sX) var(--sY) 50px 0px rgba(18, 18, 19, .1);
     }
 
     @media screen and (max-width: 1000px) {
       .whole-container {
         padding: 1.5rem;
         margin: 0rem;
+        border: 0px;
+        border-radius: 0rem;
+        position: relative;
+        background: rgb(18, 18, 19);
+      }
+      .face {
+        background: rgb(18, 18, 19);
       }
     }
 
@@ -125,7 +156,7 @@
     }
 
     header .logo svg .cls-2 {
-      fill: #ccc
+      fill: #eee
     }
 
     header ul {
@@ -137,7 +168,7 @@
     }
 
     header ul a {
-      color: #ccc;
+      color: #eee;
       margin-left: 30px;
       line-height: 1.5;
       display: flex;
@@ -152,7 +183,7 @@
     }
 
     header ul .email svg {
-      fill: #777;
+      fill: #eee;
       transition: all .1s ease-in-out;
     }
 
@@ -161,7 +192,7 @@
     }
 
     header ul .github svg .cls-1 {
-      fill: #777;
+      fill: #eee;
     }
 
     header ul .github svg:hover {
@@ -169,7 +200,7 @@
     }
 
     header ul .npm svg #Selection1 {
-      fill: #777;
+      fill: #eee;
     }
 
     header ul .npm svg #Selection2 {
@@ -284,7 +315,7 @@
       position: absolute;
       transition: transform 1s cubic-bezier(0.34, 1.56, .61, 1);
       transform-style: preserve-3d;
-      background: #1d1d20;
+      background:#5b5c60 ;
       -moz-backface-visibility: hidden;
     }
 
@@ -329,7 +360,7 @@
         <div class="card ${this.flip}">
           <div class="face front">
             <div class="whole-container">
-              <svg class="top-left-svg" width="300" height="300" xmlns="http://www.w3.org/2000/svg"
+              <!-- <svg class="top-left-svg" width="300" height="300" xmlns="http://www.w3.org/2000/svg"
                 style="pointer-events:none">
                 <defs>
                   <linearGradient id="grad1front" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -340,7 +371,7 @@
                 </defs>
                 <path fill="url('#grad1front')" d="M8 0h292l-20 20H25a5 5 0 0 0-5 5v255L0 300V8a8 8 0 0 1 8-8Z">
                 </path>
-              </svg>
+              </svg> -->
               <Header></Header>
               <div class="main-wrap">
                 <div class="main-grid">
@@ -372,7 +403,7 @@
                 </div>
               </div>
               <Footer></Footer>
-              <svg class="bottom-right-svg" width="300" height="300" xmlns="http://www.w3.org/2000/svg"
+              <!-- <svg class="bottom-right-svg" width="300" height="300" xmlns="http://www.w3.org/2000/svg"
                 style="pointer-events:none">
                 <defs>
                   <linearGradient id="grad2front" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -383,12 +414,12 @@
                 </defs>
                 <path fill="url('#grad2front')" d="M292 300H0l20-20h255a5 5 0 0 0 5-5V20l20-20v292a8 8 0 0 1-8 8Z">
                 </path>
-              </svg>
+              </svg> -->
             </div>
           </div>
           <div class="face back">
             <div class="whole-container">
-              <svg class="top-left-svg" width="300" height="300" xmlns="http://www.w3.org/2000/svg"
+              <!-- <svg class="top-left-svg" width="300" height="300" xmlns="http://www.w3.org/2000/svg"
                 style="pointer-events:none">
                 <defs>
                   <linearGradient id="grad1back" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -398,7 +429,7 @@
                   </linearGradient>
                 </defs>
                 <path fill="url('#grad1back')" d="M8 0h292l-20 20H25a5 5 0 0 0-5 5v255L0 300V8a8 8 0 0 1 8-8Z"></path>
-              </svg>
+              </svg> -->
               <Header></Header>
               <div class="main-wrap">
                 <div class="main-grid">
@@ -430,7 +461,7 @@
                 </div>
               </div>
               <Footer></Footer>
-              <svg class="bottom-right-svg" width="300" height="300" xmlns="http://www.w3.org/2000/svg"
+              <!-- <svg class="bottom-right-svg" width="300" height="300" xmlns="http://www.w3.org/2000/svg"
                 style="pointer-events:none">
                 <defs>
                   <linearGradient id="grad2back" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -441,7 +472,7 @@
                 </defs>
                 <path fill="url('#grad2back')" d="M292 300H0l20-20h255a5 5 0 0 0 5-5V20l20-20v292a8 8 0 0 1-8 8Z">
                 </path>
-              </svg>
+              </svg> -->
             </div>
           </div>
         </div>
@@ -623,6 +654,7 @@
       </script>
     </template>
   </div>
+
 </body>
 
 </html>
