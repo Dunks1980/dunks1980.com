@@ -1,0 +1,82 @@
+<template>
+  <div>
+    <h2>LED Display</h2>
+    <div class="leds">
+      <!-- Check if this.leds is an array before iterating -->
+      <if this="Array.isArray(this.leds) && this.leds.length > 0">
+        <for array="this.leds" params="led, i">
+          <div class="led-row">
+            <div class="led is-${led[1]}"></div>
+            <div class="led is-${led[2]}"></div>
+            <div class="led is-${led[3]}"></div>
+            <div class="led is-${led[4]}"></div>
+            <div class="led is-${led[5]}"></div>
+            <div class="led is-${led[6]}"></div>
+            <div class="led is-${led[7]}"></div>
+          </div>
+        </for>
+      </if>
+    </div>
+  </div>
+
+  <script mounted>
+    // Initialize this.leds as an array of objects
+    this.leds = Array.from({ length: 50 }, () => ({
+      1: Math.round(Math.random()),
+      2: Math.round(Math.random()),
+      3: Math.round(Math.random()),
+      4: Math.round(Math.random()),
+      5: Math.round(Math.random()),
+      6: Math.round(Math.random()),
+      7: Math.round(Math.random()),
+    }));
+
+    this.speed = 500; // Speed in milliseconds
+    this.lastUpdateTime = 0;
+
+    this.randomizeLeds = () => {
+      if (Array.isArray(this.leds)) {
+        this.leds = this.leds.map(led => {
+          let newLed = {};
+          for (let key in led) {
+            newLed[key] = Math.random() >= 0.5 ? 1 : 0;
+          }
+          return newLed;
+        });
+      }
+    };
+
+    this.animateLeds = (timestamp) => {
+      if (timestamp - this.lastUpdateTime >= this.speed) {
+        this.randomizeLeds();
+        this.lastUpdateTime = timestamp;
+      }
+      requestAnimationFrame(this.animateLeds);
+    };
+
+    requestAnimationFrame(this.animateLeds);
+  </script>
+
+  <style>
+    .leds {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .led-row {
+      display: flex;
+      gap: 5px;
+    }
+
+    .led {
+      width: 20px;
+      height: 20px;
+      background: #444;
+    }
+
+    .led.is-1 {
+      background: red;
+    }
+  </style>
+</template>

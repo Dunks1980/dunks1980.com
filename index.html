@@ -8,598 +8,444 @@
   <title>Dunks1980</title>
   <meta name="description" content="Home of Dunks1980 projects.">
   <link rel="icon" href="./favicon.ico">
-  <link rel="preload" href="../fonts/Montserrat/Montserrat-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-  <script src="main.js" type="module" defer></script>
+  <link rel="preload" href="./fonts/Montserrat/Montserrat-Regular.ttf" as="font" type="font/ttf"
+    crossorigin="anonymous">
+  <!-- Preconnect and DNS Prefetch to JSDelivr CDN -->
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script type="module" src="main.js" defer></script>
   <style>
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     @font-face {
       font-family: 'Montserrat-Regular';
-      src: url('../fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
+      src: url('./fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
       font-display: swap;
     }
 
     body {
-      color: #d1d1d1;
-      background: #5b5c60;
       font-family: Arial, Helvetica, sans-serif;
       font-family: 'Montserrat-Regular';
       line-height: 1.6;
-    }
-
-    :root {
-      --grad-1: #c4c4c4;
-      --grad-2: #c4c4c4;
-    }
-
-    noscript {
-      display: block;
-      padding: 20px;
-      background: #ff0000;
+      margin: 0;
+      padding: 0;
+      background-color: #16191d;
       color: #fff;
-      text-align: center;
     }
-
-    d-welcome {
-      display: block;
-      width: 100%;
-      max-width: 470px;
-      height: 122px;
-      align-self: self-end;
-      justify-self: self-start;
-      margin-bottom: 1rem;
-    }
-
-    .whole-container {
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      height: auto;
-      background: rgb(29, 29, 32);
-      max-height: 100vh;
-      padding: 2.5rem;
-      position: relative;
-      margin: 2rem;  
-    }
-
-    :root {
-      --cX: 0vw;
-      --cY: 0vh;
-    }
-
-    .whole-container {
-      content: '';
-      display: block;
-      width: 100%;
-      height: auto;
-      max-width: 960px;
-      /* max-height: 80vh; */
-      /* max-height: initial; */
-      position: fixed;
-      border: 2px solid #7c7d81;
-      border-radius: 2rem;
-      background: radial-gradient(
-        circle 40vmax at var(--cX) var(--cY),
-        rgb(26, 26, 29) 0%,
-        rgb(10, 10, 10) 100%
-      );
-      box-shadow: var(--sX) var(--sY) 50px 0px rgba(18, 18, 19, .1);
-    }
-
-    @media screen and (max-width: 1000px) {
-      .whole-container {
-        padding: 1.5rem;
-        margin: 0rem;
-        border: 0px;
-        border-radius: 0rem;
-        position: relative;
-        background: rgb(18, 18, 19);
-      }
-      .face {
-        background: rgb(18, 18, 19);
-      }
-    }
-
-    .main-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: auto;
-    }
-
-    .main-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      max-width: 1000px;
-      gap: 0rem 4rem;
-    }
-
-    .main-grid h2 {
-      margin-bottom: 1rem;
-    }
-
-    @media screen and (max-width: 1000px) {
-      .main-grid {
-        display: flex;
-        flex-direction: column-reverse;
-        gap: 3rem;
-      }
-    }
-
-    p {
-      font-size: .9rem;
-      margin-bottom: 1rem;
-      max-width: 65ch;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 3rem;
-    }
-
-    header .logo svg {
-      height: 50px;
-      width: 50px;
-      margin-left: -8px;
-      transition: all .1s ease-in-out;
-      cursor: pointer;
-    }
-
-    header .logo svg .cls-1 {
-      fill: #777
-    }
-
-    header .logo svg .cls-2 {
-      fill: #eee
-    }
-
-    header ul {
-      list-style: none;
-      justify-content: center;
-      align-items: center;
-      display: flex;
-      height: 50px
-    }
-
-    header ul a {
-      color: #eee;
-      margin-left: 30px;
-      line-height: 1.5;
-      display: flex;
-    }
-
-    header ul a svg {
-      width: 25px;
-      height: 25px;
-      margin-top: -15px;
-      transition: transform .2s ease-in-out;
-      transform: scale(1.01);
-    }
-
-    header ul .email svg {
-      fill: #eee;
-      transition: all .1s ease-in-out;
-    }
-
-    header ul .email svg:hover {
-      transform: scale(1.2);
-    }
-
-    header ul .github svg .cls-1 {
-      fill: #eee;
-    }
-
-    header ul .github svg:hover {
-      transform: scale(1.2);
-    }
-
-    header ul .npm svg #Selection1 {
-      fill: #eee;
-    }
-
-    header ul .npm svg #Selection2 {
-      fill: #0000;
-    }
-
-    header ul .npm svg:hover {
-      transform: scale(1.2);
-    }
-
-    footer {
-      text-align: right;
-      margin-top: 3rem;
-    }
-
-    @media screen and (max-width: 1000px) {
-      footer {
-        text-align: left;
-        padding-bottom: 3rem;
-      }
-    }
-
-    .top-left-svg {
-      position: absolute;
-      top: -10px;
-      left: -10px;
-      z-index: -1;
-    }
-
-    .bottom-right-svg {
-      position: absolute;
-      bottom: -10px;
-      right: -10px;
-      z-index: -1;
-    }
-
-    @media screen and (max-width: 1000px) {
-
-      .top-left-svg,
-      .bottom-right-svg {
-        display: none;
-      }
-    }
-
-    @media screen and (max-height: 700px) {
-
-      .top-left-svg,
-      .bottom-right-svg {
-        display: none;
-      }
-    }
-
-    .welcome {
-      stop-color: hsla(0, 0%, 80%, 0.5);
-    }
-
-    .domposer {
-      stop-color: hsla(0, 70%, 55%, 0.5);
-    }
-
-    .bayjs {
-      stop-color: hsla(240, 70%, 55%, 0.5);
-    }
-
-    .cookiemunch {
-      stop-color: hsla(120, 60%, 50%, 0.5);
-    }
-
-    .screentimeconverter {
-      stop-color: hsla(60, 70%, 60%, 0.5);
-    }
-
-    .inlinesvg {
-      stop-color: hsla(300, 60%, 55%, 0.5);
-    }
-
-    .main-projects {
-      padding: 0rem 3rem;
-    }
-
-    @media screen and (max-width: 1000px) {
-      .main-projects {
-        padding: 0rem 0rem;
-      }
-    }
-
-    .project-wrapper {
-      margin-top: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      flex-direction: column;
-    }
-
-    a {
-      display: block;
-      color: #ccc;
-      margin-bottom: .5rem;
-    }
-
-    .card-container {
-      perspective: 2000px;
-      width: 100vw;
-      height: 100vh;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      transition: transform 1s cubic-bezier(0.34, 1.56, .61, 1);
-      transform-style: preserve-3d;
-      background:#5b5c60 ;
-      -moz-backface-visibility: hidden;
-    }
-
-    .card .face {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      backface-visibility: hidden;
-    }
-
-    .card .front {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow-y: auto;
-      -moz-backface-visibility: hidden;
-    }
-
-    .card .back {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transform: rotateY(180deg);
-      overflow-y: auto;
-      backface-visibility: hidden;
-    }
-
-    .flip-back {
-      transform: rotateY(180deg);
-    }
-
   </style>
+
 </head>
 
 <body>
-  <noscript>
-    This site requires JavaScript to be enabled. Please enable JavaScript in your browser settings and try again.
-  </noscript>
-  <div bay-hydrate>
-    <template>
-      <div class="card-container">
-        <div class="card ${this.flip}">
-          <div class="face front">
-            <div class="whole-container">
-              <Header></Header>
-              <div class="main-wrap">
-                <div class="main-grid">
-                  <div>
-                    <switch this="this.frontProject">
-                      <case this="'welcome'" break>
-                        <Welcome></Welcome>
-                      </case>
-                      <case this="'domposer'" break>
-                        <Domposer></Domposer>
-                      </case>
-                      <case this="'bayjs'" break>
-                        <Bayjs></Bayjs>
-                      </case>
-                      <case this="'cookiemunch'" break>
-                        <Cookiemunch></Cookiemunch>
-                      </case>
-                      <case this="'screentimeconverter'" break>
-                        <Screentimeconverter></Screentimeconverter>
-                      </case>
-                      <case this="'inlinesvg'" break>
-                        <Inlinesvg></Inlinesvg>
-                      </case>
-                    </switch>
-                  </div>
-                  <div>
-                    <Projects></Projects>
-                  </div>
-                </div>
-              </div>
-              <Footer></Footer>
+
+  <bay-component bay="dsd">
+    <template shadowrootmode="open">
+      <style>
+        .wrap * {
+          opacity: 0;
+          transition: opacity 0.5s ease-in-out;
+        }
+
+        .wrap.loaded * {
+          opacity: 1;
+        }
+      </style>
+      <div class="wrap ${this.loaded}">
+        <dsd>
+          <h1 id="title">loading...</h1>
+        </dsd>
+
+        <header>
+          <div class="header-inner">
+            <div class="header-logo">
+              <LOGOSVG></LOGOSVG>
+            </div>
+            <div class="header-links">
+              <a aria-label="email" rel="noopener" target="_blank"
+                href="mailto:info@dunks1980.com?subject=Mail from dunks1980.com">
+                <EMAILSVG></EMAILSVG>
+              </a>
+              <a aria-label="github" rel="noopener" target="_blank" href="https://github.com/Dunks1980/">
+                <GITSVG></GITSVG>
+              </a>
+              <a aria-label="npm" rel="noopener" target="_blank" href="https://www.npmjs.com/~dunks1980">
+                <NPMSVG></NPMSVG>
+              </a>
             </div>
           </div>
-          <div class="face back">
-            <div class="whole-container">
-              <Header></Header>
-              <div class="main-wrap">
-                <div class="main-grid">
-                  <div>
-                    <switch this="this.backProject">
-                      <case this="'welcome'" break>
-                        <Welcome></Welcome>
-                      </case>
-                      <case this="'domposer'" break>
-                        <Domposer></Domposer>
-                      </case>
-                      <case this="'bayjs'" break>
-                        <Bayjs></Bayjs>
-                      </case>
-                      <case this="'cookiemunch'" break>
-                        <Cookiemunch></Cookiemunch>
-                      </case>
-                      <case this="'screentimeconverter'" break>
-                        <Screentimeconverter></Screentimeconverter>
-                      </case>
-                      <case this="'inlinesvg'" break>
-                        <Inlinesvg></Inlinesvg>
-                      </case>
-                    </switch>
-                  </div>
-                  <div>
-                    <Projects></Projects>
-                  </div>
-                </div>
-              </div>
-              <Footer></Footer>
+        </header>
+
+        <div class="hero">
+          <div class="hero-text">
+            <bay-welcome bay="/components/welcome.html"></bay-welcome>
+            <div>
+              <p>My name is Ian Dunkerley, a front-end developer based in Torquay, Devon, UK. I have worked on a wide
+                range of front-end projects, from DJ applications to eCommerce booking platforms, with a focus on
+                creating clean, well-crafted interfaces that not only look great but also provide a seamless user
+                experience.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <define this="Header">
-        <header>
-          <div :click="this.setProject('welcome')" class="logo"> <svg id="Layer_1" data-name="Layer 1"
-              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 259.23 343.78">
-              <path class="cls-1"
-                d="M915 419.1c22.75 1.32 45.5 2.69 68.26 3.89 3.74.2 2.67 2.69 2.67 4.59q.09 39 0 78c0 8.65 0 8.58 8.53 7.83 7-.61 13.93-1.14 20.91-1.49a27.35 27.35 0 0 0 19.27-9.14c19-20.15 18.24-63.83-1.61-83.18a22.94 22.94 0 0 0-15-7c-7-.4-13.94-1-20.92-1.29-2.16-.1-3.22-.37-3.21-3 .08-33.13.06-66.27.06-98.74 37.75.43 63.34 19.89 80.84 51.71 15.54 28.26 22.68 58.83 24 90.8 1.44 35.39-3.86 69.7-18.92 102-9.71 20.87-22.75 39.08-43.44 50.66-10.09 5.65-21.42 7-32.41 9.46q-43.26 9.86-86.57 19.52a11.85 11.85 0 0 1-2.46.07V419.1Z"
-                transform="translate(-839.8 -290.1)"></path>
-              <path class="cls-2"
-                d="M915 419.1v214.75q-26.28-5.64-52.56-11.3c-6.16-1.33-12.28-2.92-18.48-4-3.28-.58-4.17-1.95-4.15-5.23.14-27.45.08-54.91.08-82.36 0-34.44.06-68.88-.09-103.31 0-3.6.86-4.85 4.55-5 23.56-1.03 47.07-3.12 70.65-3.55ZM915 404.67c-23.69 1.79-47.39 3.53-71.07 5.44-3.43.28-4.14-.88-4.13-4.06.1-31.94 0-63.88.06-95.82 0-2-.34-3.71 2.64-4.35 23.85-5.14 47.65-10.49 71.48-15.76a3.34 3.34 0 0 1 1 .06Z"
-                transform="translate(-839.8 -290.1)"></path>
-              <path class="cls-1"
-                d="M915 404.67V290.18c13.94 2.27 27.49 6.28 41.27 9.27 8.76 1.9 17.43 4.27 26.21 6.11 2.93.61 3.57 1.85 3.56 4.63q-.15 48.22 0 96.44c0 3.16-.81 3.88-3.89 3.61-22.36-1.95-44.74-3.73-67.15-5.57Z"
-                transform="translate(-839.8 -290.1)"></path>
-            </svg> </div>
-          <div>
-            <ul>
-              <li class="email"> <a aria-label="email"
-                  href="mailto:info@dunks1980.com?subject=Mail from dunks1980.com"><svg version="1.0"
-                    xmlns="http://www.w3.org/2000/svg" width="857.333" height="620" viewBox="0 0 643 465">
-                    <path
-                      d="M39 3.4C31.6 5.1 27.5 7 21.4 11.6 11.2 19.3 5 29.2 3 41.1c-.8 4.5-1 61.4-.8 195.9.3 185.8.3 189.6 2.3 195 4.5 12.6 15.8 24.2 28.2 29.1 5 1.9 8.2 2.3 23.1 2.7l17.2.4V292.6c0-94.4.3-171.6.6-171.6.4 0 56.5 39.8 124.6 88.5l124 88.6 123.6-88.3c67.9-48.6 123.9-88.5 124.4-88.6.4-.2.8 76.8.8 171.2V464h15.3c16.2 0 21.9-1 30.3-5.1 11.3-5.6 21.7-19.2 24.3-31.7.8-3.8 1.1-59.8 1.1-194.5 0-166.8-.2-190-1.5-195.2-4.7-17.7-19.3-31.2-37.6-34.6-5.4-1-7-.9-9.2.2-1.4.8-62.9 44.7-136.6 97.6-73.7 53-134.5 96.3-135 96.3-.6 0-60.8-42.8-133.8-95.2C115.2 49.4 54 5.6 52.1 4.3c-3.8-2.6-5.2-2.7-13.1-.9z">
-                    </path>
-                  </svg></a> </li>
-              <li class="github"> <a aria-label="github" href="https://github.com/Dunks1980/"><svg
-                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120.78 117.79">
-                    <g id="Layer_2" data-name="Layer 2">
-                      <g id="Layer_1-2" data-name="Layer 1">
-                        <path class="cls-1"
-                          d="M60.39 0A60.39 60.39 0 0 0 41.3 117.69c3 .56 4.12-1.31 4.12-2.91 0-1.44-.05-6.19-.08-11.24C28.54 107.19 25 96.42 25 96.42c-2.75-7-6.71-8.84-6.71-8.84-5.48-3.75.41-3.67.41-3.67 6.07.43 9.26 6.22 9.26 6.22 5.39 9.23 14.13 6.57 17.57 5 .55-3.9 2.11-6.56 3.84-8.07C36 85.55 21.85 80.37 21.85 57.23A23.35 23.35 0 0 1 28.08 41c-.63-1.52-2.7-7.66.58-16 0 0 5.07-1.62 16.61 6.19a57.36 57.36 0 0 1 30.25 0C87 23.42 92.11 25 92.11 25c3.28 8.32 1.22 14.46.59 16a23.34 23.34 0 0 1 6.21 16.21c0 23.2-14.12 28.3-27.57 29.8 2.16 1.87 4.09 5.55 4.09 11.18 0 8.08-.06 14.59-.06 16.57 0 1.61 1.08 3.49 4.14 2.9A60.39 60.39 0 0 0 60.39 0Z">
-                        </path>
-                        <path class="cls-2"
-                          d="M22.87 86.7c-.13.3-.6.39-1 .19s-.69-.61-.55-.91.61-.39 1-.19.69.61.54.91ZM25.32 89.43c-.29.27-.85.14-1.24-.28a.92.92 0 0 1-.17-1.25c.3-.27.84-.14 1.24.28s.47 1 .17 1.25ZM27.7 92.91c-.37.26-1 0-1.35-.52s-.37-1.18 0-1.44 1 0 1.35.51.37 1.19 0 1.45ZM31 96.27a1.13 1.13 0 0 1-1.59-.27c-.53-.49-.68-1.18-.34-1.54s1-.27 1.56.23.68 1.18.33 1.54ZM35.46 98.22c-.15.47-.82.69-1.51.49s-1.13-.76-1-1.24.82-.7 1.51-.49 1.13.76 1 1.24ZM40.4 98.58c0 .5-.56.91-1.28.92s-1.3-.38-1.31-.88.56-.91 1.29-.92 1.3.39 1.3.88ZM45 97.8c.09.49-.41 1-1.12 1.12s-1.35-.17-1.44-.66.42-1 1.12-1.12 1.35.17 1.44.66Z">
-                        </path>
-                      </g>
-                    </g>
-                  </svg></a> </li>
-              <li class="npm"> <a aria-label="npm" data-inlinesvg=".inlineSvgFile-3"
-                  href="https://www.npmjs.com/~dunks1980"><svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
-                    viewBox="0 0 400 400">
-                    <path id="Selection1" fill="#fff" stroke-width="1"
-                      d="M69 69c262 0 0 0 0 0v262h131V121h59c4.17 0 16.63-1.2 18.98 2.31 1.23 1.85 1.02 5.5 1.02 7.69v200h52V69Z">
-                    </path>
-                    <path id="Selection2" fill="red" stroke-width="1"
-                      d="M0 0h400v400H0V0Zm331 69H69v262h131V121h59c4.17 0 16.63-1.2 18.98 2.31 1.23 1.85 1.02 5.5 1.02 7.69v200h52V69Z">
-                    </path>
-                  </svg></a> </li>
-            </ul>
-          </div>
-        </header>
-      </define>
+      <style>
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
 
-      <define this="Footer">
-        <footer>© ${new Date().getFullYear()} dunks1980.com</footer>
-      </define>
+        header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1.5rem 1rem;
+        }
 
-      <define this="Projects">
-        <div class="main-projects">
-          <h2>Projects</h2>
-          <div class="project-wrapper">
+        .header-inner {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          max-width: 1200px;
+          margin: auto;
+          font-size: 1.5rem;
+          height: 1.5rem;
+        }
 
-            <a rel="noopener" target="_blank" :click.prevent="this.setProject('domposer')" href="https://domposer.com">
-              <span>Domposer</span>
-            </a>
-            <a rel="noopener" target="_blank" :click.prevent="this.setProject('bayjs')" href="https://bayjs.org">
-              <span>Bay.js</span>
-            </a>
-            <a rel="noopener" target="_blank" :click.prevent="this.setProject('cookiemunch')"
-              href="https://cookiemunch.dunks1980.com">
-              <span>Cookiemunch</span>
-            </a>
-            <a rel="noopener" target="_blank" :click.prevent="this.setProject('screentimeconverter')"
-              href="https://screentimeconverter.com">
-              <span>Screen time converter</span>
-            </a>
-            <a rel="noopener" target="_blank" :click.prevent="this.setProject('inlinesvg')"
-              href="https://inlinesvg.dunks1980.com/">
-              <span>inline.svg</span> </a>
+        .header-logo {
+          height: 2rem;
+        }
 
-          </div>
-        </div>
-      </define>
+        .header-links {
+          display: flex;
+          justify-content: space-between;
+          height: 2rem;
+          gap: 2rem;
+        }
 
-      <define this="Welcome">
-        <d-welcome prop-color="#cccccc">
-          <svg xmlns="http://www.w3.org/2000/svg" id="welcome" width="6.30667in" height="1.27333in" viewBox="0 0 1892 382"></svg>
-        </d-welcome>
-        <div>
-          <p>My name is Ian Dunkerley, and I’m a front-end developer located in Torquay, Devon, UK. Over the years, I’ve had the opportunity to work on a variety of front-end projects, ranging from DJ applications to eCommerce booking platforms.</p>
-          <p>I’m particularly drawn to creating clean, well-crafted interfaces that not only look great but also provide a seamless user experience.</p>
-        </div>
-      </define>
+        .hero {
+          width: 100%;
+          height: 100%;
+          background: url(./images/tiles.jpg) no-repeat center top/cover;
+          background-attachment: fixed;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 5rem 1rem;
+          border-top: 3px solid #000;
+          border-bottom: 3px solid #000;
+        }
 
-      <define this="Domposer">
-        <h2>Domposer</h2>
-        <p>Domposer is a website builder which has a UI that allows you to quickly add and rearrange HTML and CSS,
-          upload and download created projects and files, login to save upto 5 projects and can be installed as a
-          progressive web application. The stack is Laravel for the backend/API's and vanilla JS for the frontend. The
-          git repository for this one is private at the moment. </p> <a target="_blank" href="https://domposer.com">
-          View Site </a>
-      </define>
-
-      <define this="Bayjs">
-        <h2>Bay.js</h2>
-        <p>An easy to use, lightweight library for web-components. It doesn't need a build step but can be included in
-          a build step if you want to. It's a great way to create reusable components for your projects. It's
-          available as a NPM package and doesn't use any dependencies and is 11kb minified. It also doesn't use eval
-          or new Function so can be used in strict CSP polices without a build step. </p> <a rel="noopener"
-          target="_blank" href="https://bayjs.org"> View Site </a> <a rel="noopener" target="_blank"
-          href="https://github.com/Dunks1980/bay.js"> Github </a> <a rel="noopener" target="_blank"
-          href="https://www.npmjs.com/package/@dunks1980/bay.js"> NPM </a>
-      </define>
-
-      <define this="Cookiemunch">
-        <h2>Cookiemunch</h2>
-        <p>A simple, customizable, minimal setup cookie plugin that allows your users to select which cookies to
-          accept or decline. This was created with vanilla JS, SCSS and Parcel Bundler and is available as a NPM
-          package and the git repository makes any type of customization to code and themes possible. </p> <a
-          target="_blank" href="https://cookiemunch.dunks1980.com"> View Site </a> <a rel="noopener" target="_blank"
-          href="https://github.com/Dunks1980/Cookiemunch"> Github </a>
-        <a rel="noopener" target="_blank" href="https://www.npmjs.com/package/@dunks1980/cookiemunch"> NPM
-        </a>
-      </define>
-
-      <define this="Screentimeconverter">
-        <h2>Screen time converter</h2>
-        <p>Count the time your children spend on activities like homework, chores and exercise and convert it into
-          screen time. I created this with Vue.js and the Howlr libary to add the interactive clock sounds. It can be
-          installed as a progressive web application and is also available from the google play store. The git
-          repository for this one is private at the moment. </p><a rel="noopener" target="_blank"
-          href="https://screentimeconverter.com"> View Site </a>
-      </define>
-
-      <define this="Inlinesvg">
-        <h2>inline.svg</h2>
-        <p>This is a NPM package that takes an SVG file and renders it as a inline SVG to the DOM and can also render
-          HTML files too. You can also pass data to it that renders where its specified inside double curly braces. I
-          created this to solve problems with some frameworks and bundlers when using inline SVG files and to keep
-          code cleaner and easier to read. </p><a rel="noopener" target="_blank"
-          href="https://inlinesvg.dunks1980.com/"> View Site </a> <a rel="noopener" target="_blank"
-          href="https://github.com/Dunks1980/inline.svg"> Github </a> <a rel="noopener" target="_blank"
-          href="https://www.npmjs.com/package/@dunks1980/inline.svg"> NPM </a>
-
-      </define>
-
-      <script>
-        this.flip = 'flip-front';
-        this.currentProject = 'welcome';
-        this.frontProject = 'welcome';
-        this.backProject = 'welcome';
-        this.setProject = (val) => {
-          if (this.currentProject === val) {
-            return;
-          }
-          this.currentProject = val;
-          if (this.flip === 'flip-back') {
-            this.frontProject = val;
-            setTimeout(() => {
-              this.flip = 'flip-front';
-            }, 0);
-          } else if (this.flip === 'flip-front') {
-            this.backProject = val;
-            setTimeout(() => {
-              this.flip = 'flip-back';
-            }, 0);
+        /* Use AVIF if supported */
+        @supports (background-image: url(./images/tiles.avif)) {
+          .hero {
+            background: url(./images/tiles.avif) no-repeat center top/cover;
+            background-attachment: fixed;
           }
         }
-      </script>
+
+        .hero-text {
+          width: 100%;
+          max-width: 1200px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          height: 100%;
+          color: #fff;
+          gap: 2rem;
+        }
+
+        .hero-text p {
+          max-width: 69ch;
+        }
+      </style>
+
+      <div class="wrap ${this.loaded}">
+        <noscript>
+          <div class="projects">
+            <div class="projects-text">
+              <h2>Projects</h2>
+            </div>
+          </div>
+
+          <if this="this.projects">
+            <for params="project" array="this.projects">
+              <div class="project">
+                <div class="project-wrap">
+
+                  <picture  class="project-img">
+                    <source srcset="${project.thumb}.avif" type="image/avif">
+                    <img alt="${project.title} screenshot" src="${project.thumb}.jpg" width="320" height="200" data-img="${project.img}" :click="this.image_click(e)"/>
+                  </picture>
+
+                  <div class="project-text">
+                    <h3>${project.title}</h3>
+                    <p>${project.text}</p>
+                    <div class="project-buttons">
+                      <for params="button" array="project.buttons">
+                        <div class="project-button">
+                          <a aria-label="${button.aria}" href="${button.href}" rel="noopener" target="_blank">
+                            <if this="button.icon === 'WebSVG'">
+                              <WebSVG></WebSVG>
+                            </if>
+                            <else-if this="button.icon === 'GITSVG'">
+                              <GITSVG></GITSVG>
+                            </else-if>
+                            <else-if this="button.icon === 'NPMSVG'">
+                              <NPMSVG></NPMSVG>
+                            </else-if>
+                          </a>
+                        </div>
+                      </for>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </for>
+          </if>
+
+          <footer>
+            <div class="footer-inner">
+              © ${new Date().getFullYear()} dunks1980.com
+            </div>
+          </footer>
+
+          <bay-modal open="${this.open_modal}">
+            <if this="this.img">
+              <img alt="${this.img} screenshot" class="modal-image" this-attribute="this.setscr()"
+                :click="this.open_modal = false">
+            </if>
+          </bay-modal>
+
+          <define this="WebSVG">
+            <svg class="svg-icon" style="height: 1em; width: 1em; transform: scale(1.2);" viewBox="0 0 1024 1024">
+              <path fill="currentColor"
+                d="M698.026667 597.333333C701.44 569.173333 704 541.013333 704 512 704 482.986667 701.44 454.826667 698.026667 426.666667L842.24 426.666667C849.066667 453.973333 853.333333 482.56 853.333333 512 853.333333 541.44 849.066667 570.026667 842.24 597.333333M622.506667 834.56C648.106667 787.2 667.733333 736 681.386667 682.666667L807.253333 682.666667C766.293333 753.066667 701.013333 807.68 622.506667 834.56M611.84 597.333333 412.16 597.333333C407.893333 569.173333 405.333333 541.013333 405.333333 512 405.333333 482.986667 407.893333 454.4 412.16 426.666667L611.84 426.666667C615.68 454.4 618.666667 482.986667 618.666667 512 618.666667 541.013333 615.68 569.173333 611.84 597.333333M512 851.626667C476.586667 800.426667 448 743.68 430.506667 682.666667L593.493333 682.666667C576 743.68 547.413333 800.426667 512 851.626667M341.333333 341.333333 216.746667 341.333333C257.28 270.506667 322.986667 215.893333 401.066667 189.44 375.466667 236.8 356.266667 288 341.333333 341.333333M216.746667 682.666667 341.333333 682.666667C356.266667 736 375.466667 787.2 401.066667 834.56 322.986667 807.68 257.28 753.066667 216.746667 682.666667M181.76 597.333333C174.933333 570.026667 170.666667 541.44 170.666667 512 170.666667 482.56 174.933333 453.973333 181.76 426.666667L325.973333 426.666667C322.56 454.826667 320 482.986667 320 512 320 541.013333 322.56 569.173333 325.973333 597.333333M512 171.946667C547.413333 223.146667 576 280.32 593.493333 341.333333L430.506667 341.333333C448 280.32 476.586667 223.146667 512 171.946667M807.253333 341.333333 681.386667 341.333333C667.733333 288 648.106667 236.8 622.506667 189.44 701.013333 216.32 766.293333 270.506667 807.253333 341.333333M512 85.333333C276.053333 85.333333 85.333333 277.333333 85.333333 512 85.333333 747.52 276.48 938.666667 512 938.666667 747.52 938.666667 938.666667 747.52 938.666667 512 938.666667 276.48 747.52 85.333333 512 85.333333Z" />
+            </svg>
+          </define>
+
+          <define this="NPMSVG">
+            <svg viewBox="0 0 400 400" style="height: 1em; width: 1em; transform: scale(1.4);">
+              <path id="Selection1" fill="currentColor" stroke-width="1"
+                d="M69 69c262 0 0 0 0 0v262h131V121h59c4.17 0 16.63-1.2 18.98 2.31 1.23 1.85 1.02 5.5 1.02 7.69v200h52V69Z">
+              </path>
+              <!-- <path id="Selection2" fill="red" stroke-width="1"
+            d="M0 0h400v400H0V0Zm331 69H69v262h131V121h59c4.17 0 16.63-1.2 18.98 2.31 1.23 1.85 1.02 5.5 1.02 7.69v200h52V69Z">
+          </path> -->
+            </svg>
+          </define>
+
+          <define this="GITSVG">
+            <svg viewBox="0 0 120.78 117.79" style="height: 1em; width: 1em; transform: scale(1.05);">
+              <g id="Layer_2" data-name="Layer 2">
+                <g id="Layer_1-2" data-name="Layer 1">
+                  <path class="cls-1" fill="currentColor"
+                    d="M60.39 0A60.39 60.39 0 0 0 41.3 117.69c3 .56 4.12-1.31 4.12-2.91 0-1.44-.05-6.19-.08-11.24C28.54 107.19 25 96.42 25 96.42c-2.75-7-6.71-8.84-6.71-8.84-5.48-3.75.41-3.67.41-3.67 6.07.43 9.26 6.22 9.26 6.22 5.39 9.23 14.13 6.57 17.57 5 .55-3.9 2.11-6.56 3.84-8.07C36 85.55 21.85 80.37 21.85 57.23A23.35 23.35 0 0 1 28.08 41c-.63-1.52-2.7-7.66.58-16 0 0 5.07-1.62 16.61 6.19a57.36 57.36 0 0 1 30.25 0C87 23.42 92.11 25 92.11 25c3.28 8.32 1.22 14.46.59 16a23.34 23.34 0 0 1 6.21 16.21c0 23.2-14.12 28.3-27.57 29.8 2.16 1.87 4.09 5.55 4.09 11.18 0 8.08-.06 14.59-.06 16.57 0 1.61 1.08 3.49 4.14 2.9A60.39 60.39 0 0 0 60.39 0Z">
+                  </path>
+                  <path class="cls-2"
+                    d="M22.87 86.7c-.13.3-.6.39-1 .19s-.69-.61-.55-.91.61-.39 1-.19.69.61.54.91ZM25.32 89.43c-.29.27-.85.14-1.24-.28a.92.92 0 0 1-.17-1.25c.3-.27.84-.14 1.24.28s.47 1 .17 1.25ZM27.7 92.91c-.37.26-1 0-1.35-.52s-.37-1.18 0-1.44 1 0 1.35.51.37 1.19 0 1.45ZM31 96.27a1.13 1.13 0 0 1-1.59-.27c-.53-.49-.68-1.18-.34-1.54s1-.27 1.56.23.68 1.18.33 1.54ZM35.46 98.22c-.15.47-.82.69-1.51.49s-1.13-.76-1-1.24.82-.7 1.51-.49 1.13.76 1 1.24ZM40.4 98.58c0 .5-.56.91-1.28.92s-1.3-.38-1.31-.88.56-.91 1.29-.92 1.3.39 1.3.88ZM45 97.8c.09.49-.41 1-1.12 1.12s-1.35-.17-1.44-.66.42-1 1.12-1.12 1.35.17 1.44.66Z">
+                  </path>
+                </g>
+              </g>
+            </svg>
+          </define>
+
+          <define this="EMAILSVG">
+            <svg style="height: 1em; width: 1em; transform: scale(1.3);" viewBox="0 0 643 465">
+              <path fill="currentColor"
+                d="M39 3.4C31.6 5.1 27.5 7 21.4 11.6 11.2 19.3 5 29.2 3 41.1c-.8 4.5-1 61.4-.8 195.9.3 185.8.3 189.6 2.3 195 4.5 12.6 15.8 24.2 28.2 29.1 5 1.9 8.2 2.3 23.1 2.7l17.2.4V292.6c0-94.4.3-171.6.6-171.6.4 0 56.5 39.8 124.6 88.5l124 88.6 123.6-88.3c67.9-48.6 123.9-88.5 124.4-88.6.4-.2.8 76.8.8 171.2V464h15.3c16.2 0 21.9-1 30.3-5.1 11.3-5.6 21.7-19.2 24.3-31.7.8-3.8 1.1-59.8 1.1-194.5 0-166.8-.2-190-1.5-195.2-4.7-17.7-19.3-31.2-37.6-34.6-5.4-1-7-.9-9.2.2-1.4.8-62.9 44.7-136.6 97.6-73.7 53-134.5 96.3-135 96.3-.6 0-60.8-42.8-133.8-95.2C115.2 49.4 54 5.6 52.1 4.3c-3.8-2.6-5.2-2.7-13.1-.9z">
+              </path>
+            </svg>
+          </define>
+
+          <define this="LOGOSVG">
+            <svg style="height: 1em; width: 1em; transform: scale(1.2);" viewBox="0 0 259.23 343.78">
+              <path class="cls-1" fill="#777"
+                d="M915 419.1c22.75 1.32 45.5 2.69 68.26 3.89 3.74.2 2.67 2.69 2.67 4.59q.09 39 0 78c0 8.65 0 8.58 8.53 7.83 7-.61 13.93-1.14 20.91-1.49a27.35 27.35 0 0 0 19.27-9.14c19-20.15 18.24-63.83-1.61-83.18a22.94 22.94 0 0 0-15-7c-7-.4-13.94-1-20.92-1.29-2.16-.1-3.22-.37-3.21-3 .08-33.13.06-66.27.06-98.74 37.75.43 63.34 19.89 80.84 51.71 15.54 28.26 22.68 58.83 24 90.8 1.44 35.39-3.86 69.7-18.92 102-9.71 20.87-22.75 39.08-43.44 50.66-10.09 5.65-21.42 7-32.41 9.46q-43.26 9.86-86.57 19.52a11.85 11.85 0 0 1-2.46.07V419.1Z"
+                transform="translate(-839.8 -290.1)"></path>
+              <path class="cls-2" fill="#eee"
+                d="M915 419.1v214.75q-26.28-5.64-52.56-11.3c-6.16-1.33-12.28-2.92-18.48-4-3.28-.58-4.17-1.95-4.15-5.23.14-27.45.08-54.91.08-82.36 0-34.44.06-68.88-.09-103.31 0-3.6.86-4.85 4.55-5 23.56-1.03 47.07-3.12 70.65-3.55ZM915 404.67c-23.69 1.79-47.39 3.53-71.07 5.44-3.43.28-4.14-.88-4.13-4.06.1-31.94 0-63.88.06-95.82 0-2-.34-3.71 2.64-4.35 23.85-5.14 47.65-10.49 71.48-15.76a3.34 3.34 0 0 1 1 .06Z"
+                transform="translate(-839.8 -290.1)"></path>
+              <path class="cls-1" fill="#777"
+                d="M915 404.67V290.18c13.94 2.27 27.49 6.28 41.27 9.27 8.76 1.9 17.43 4.27 26.21 6.11 2.93.61 3.57 1.85 3.56 4.63q-.15 48.22 0 96.44c0 3.16-.81 3.88-3.89 3.61-22.36-1.95-44.74-3.73-67.15-5.57Z"
+                transform="translate(-839.8 -290.1)"></path>
+            </svg>
+          </define>
+
+
+        </noscript>
+      </div>
+      <style>
+        .projects {
+          display: block;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 5rem 1rem 3rem;
+        }
+
+        .projects-text {
+          width: 100%;
+          max-width: 1200px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          height: 100%;
+          color: #fff;
+          gap: 2rem;
+        }
+
+        h2 {
+          font-size: 3rem;
+          line-height: 1;
+          font-weight: 100;
+        }
+
+        h3 {
+          font-size: 2rem;
+          line-height: 1;
+          font-weight: 100;
+        }
+
+        .project {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 3rem 1rem;
+          border-bottom: 3px solid #16191d;
+          background: #101214;
+        }
+
+        .project-wrap {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          flex-direction: row;
+          width: 100%;
+          max-width: 1200px;
+          margin: auto;
+        }
+
+        @media screen and (max-width: 768px) {
+          .project-wrap {
+            flex-direction: column;
+          }
+        }
+
+        .project-img {
+          width: calc(100% / 3.75);
+          height: auto;
+          cursor: pointer;
+        }
+
+        @media screen and (max-width: 768px) {
+          .project-img {
+            width: 100%;
+            padding: 0rem 0rem 2rem;
+          }
+        }
+
+        .project-text {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          gap: 1rem;
+          padding: 0rem 2rem;
+          color: #fff;
+        }
+
+        @media screen and (max-width: 768px) {
+          .project-text {
+            padding: 0rem 0rem;
+          }
+        }
+
+        .project-buttons {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 1.5rem;
+          font-size: 1.5rem;
+        }
+
+        a {
+          color: #fff;
+          text-decoration: none;
+        }
+
+        .modal-image {
+          max-width: 90vw;
+          max-height: 90vh;
+          cursor: pointer;
+        }
+
+        footer {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 5rem 1rem;
+          background: #16191d;
+        }
+
+        .footer-inner {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          width: 100%;
+          max-width: 1200px;
+          margin: auto;
+          font-size: 1rem;
+        }
+      </style>
+
+      <noscript>
+        <script>
+          this.img = '';
+          this.open_modal = false;
+          this.image_click = e => {
+            let data = e.target.dataset;
+            if (data.img) {
+              this.img = data.img;
+              this.open_modal = true;
+            }
+          };
+
+          this.projects = [];
+
+          async function loadJSON() {
+            const response = await fetch('./projects.json');
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const jsonData = await response.json();
+            return jsonData;
+          }
+
+          loadJSON().then(data => {
+            this.projects = data.data;
+          }).catch(error => {
+            console.error('Error loading JSON:', error);
+          });
+
+          this.setscr = () => {
+            return this.img ? `src="${this.img}"` : '';
+          };
+        </script>
+        <script mounted>
+          setTimeout(() => {
+            this.loaded = "loaded";
+          }, 10);
+        </script>
+      </noscript>
+
     </template>
-  </div>
+  </bay-component>
 
 </body>
 

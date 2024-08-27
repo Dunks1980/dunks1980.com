@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" id="welcome" width="6.30667in" height="1.27333in" viewBox="0 0 1892 382">
-  <path id="welcome_path" style="transition: fill 1s ease-in-out; 
+
+  <svg xmlns="http://www.w3.org/2000/svg" id="welcome" width="6.30667in" height="1.27333in" viewBox="0 0 1892 382">
+    <path id="welcome_path" style="transition: fill 1s ease-in-out; 
   stroke-dasharray: 2745.12, 2745.12; 
   stroke-dashoffset: 0;" stroke="none" stroke-miterlimit="10" stroke-width="2" d="M 673.00,52.00
    C 673.00,52.00 686.00,52.00 686.00,52.00
@@ -161,91 +162,76 @@
    C 1846.74,313.55 1851.69,313.46 1855.67,316.80
      1862.85,322.81 1860.81,334.88 1852.00,338.26
      1837.37,343.87 1826.37,323.44 1842.00,314.85 Z" />
-</svg>
+  </svg>
 
 
-<script>
-  const fillPath = (svg_id, path_id, color) => {
-    setTimeout(() => {
-      var current_frame, total_frames, path, length, handle, myobj;
-      myobj = $bay.getElementById(svg_id).cloneNode(true);
-      var init = function () {
-        current_frame = 0;
-        total_frames = 800;
-        path = [];
-        length = [];
-        for (var i = 0; i < 1; i++) {
-          path[i] = $bay.getElementById(path_id);
-          let l = path[i].getTotalLength();
-          length[i] = l;
-          path[i].style.strokeDasharray = l + ' ' + l;
-          path[i].style.strokeDashoffset = l;
-          path[i].style.stroke = color;
-        }
-        handle = 0;
-      }
-      var draw = function () {
-        var progress = current_frame / total_frames;
-        if (progress > .25) {
-          path[0].style.fill = color;
-          window.cancelAnimationFrame(handle);
-        } else {
-          current_frame++;
-          for (var j = 0; j < path.length; j++) {
-            path[j].style.strokeDashoffset = Math.floor(length[j] * (1 - progress));
+  <script>
+    const fillPath = (svg_id, path_id, color) => {
+      setTimeout(() => {
+        var current_frame, total_frames, path, length, handle, myobj;
+        myobj = $bay.getElementById(svg_id).cloneNode(true);
+        var init = function () {
+          current_frame = 0;
+          total_frames = 800;
+          path = [];
+          length = [];
+          for (var i = 0; i < 1; i++) {
+            path[i] = $bay.getElementById(path_id);
+            let l = path[i].getTotalLength();
+            length[i] = l;
+            path[i].style.strokeDasharray = l + ' ' + l;
+            path[i].style.strokeDashoffset = l;
+            path[i].style.stroke = color;
           }
-          handle = window.requestAnimationFrame(draw);
+          handle = 0;
         }
-      };
-      init();
-      draw();
-    }, 100);
-  };
+        var draw = function () {
+          var progress = current_frame / total_frames;
+          if (progress > .25) {
+            path[0].style.fill = color;
+            window.cancelAnimationFrame(handle);
+          } else {
+            current_frame++;
+            for (var j = 0; j < path.length; j++) {
+              path[j].style.strokeDashoffset = Math.floor(length[j] * (1 - progress));
+            }
+            handle = window.requestAnimationFrame(draw);
+          }
+        };
+        init();
+        draw();
+      }, 100);
+    };
 
-  this.main_color = this['prop-color'] || '#fff';
-  fillPath('welcome', 'welcome_path', this.main_color);
-</script>
+    this.main_color = this['prop-color'] || '#fff';
+    setTimeout(() => {
+      fillPath('welcome', 'welcome_path', this.main_color);
+    }, 500);
+  </script>
 
-<style>
-  #bay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-  }
+  <style>
 
-  #bay {
-    /* -webkit-backface-visibility: hidden;
-    backface-visibility: hidden; */
-    -webkit-font-smoothing: subpixel-antialiased;
-    transform: translateZ(0);
-}
-
-  :host {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  #welcome {
-    margin: 0 auto;
-    width: 100%;
-    max-height: calc(200px - 2rem);
-  }
-
-  @media screen and (max-width: 600px) {
     #welcome {
-      max-height: calc(150px - 2rem);
+      display: inline-block;
+      box-sizing: border-box;
+      max-height: calc(180px - 2rem);
+      width: auto;
     }
-  }
 
-  svg path {
-    fill: transparent;
-    stroke: transparent;
-    transition: fill;
-    transition-delay: 18000ms;
-    transition-duration: 3000ms;
-    stroke-dashoffset: 0;
-    stroke-width: 4;
-  }
-</style>
+    @media screen and (max-width: 600px) {
+      #welcome {
+        max-height: calc(150px - 2rem);
+        width: 100%;
+      }
+    }
+
+    svg path {
+      fill: transparent;
+      stroke: transparent;
+      transition: fill;
+      transition-delay: 18000ms;
+      transition-duration: 3000ms;
+      stroke-dashoffset: 0;
+      stroke-width: 4;
+    }
+  </style>
