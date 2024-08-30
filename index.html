@@ -27,8 +27,8 @@
       line-height: 1.6;
       margin: 0;
       padding: 0;
-      background-color: #16191d;
-      color: #fff;
+      background-color: #fafeff;
+      color: #0a001b;
     }
   </style>
 
@@ -74,16 +74,32 @@
         </header>
 
         <div class="hero">
-          <div class="hero-text">
-            <bay-welcome bay="/components/welcome.html"></bay-welcome>
+          <div class="hero-inner">
             <div>
-              <p>My name is Ian Dunkerley, a front-end developer based in Torquay, Devon, UK. I have worked on a wide
-                range of front-end projects, from DJ applications to eCommerce booking platforms, with a focus on
-                creating clean, well-crafted interfaces that not only look great but also provide a seamless user
-                experience.</p>
+              <bay-welcome bay="/components/welcome.html"></bay-welcome>
+              <div>
+                <p>My name is Ian Dunkerley, a front-end developer based in Torquay, Devon, UK. I have worked on a wide
+                  range of front-end projects, from DJ applications to eCommerce booking platforms, with a focus on
+                  creating clean, well-crafted interfaces that not only look great but also provide a seamless user
+                  experience.</p>
+              </div>
+            </div>
+            <div class="hero-image">
+              <picture>
+                <source srcset="./images/hero_setup.avif" type="image/avif">
+                <img width="500" height="500" src="./images/hero_setup.jpg" alt="hero image">
+              </picture>
             </div>
           </div>
         </div>
+
+        <svg class="svg-curve" viewBox="0 0 1440 79" xmlns="http://www.w3.org/2000/svg">
+          <path d="M-100 79C-100 79 218.416 23.165 693.5 23.165C1168.58 23.165 1487 79 1487 79V0H-100V79Z"></path>
+        </svg>
+
+
+
+
       </div>
 
       <style>
@@ -98,6 +114,7 @@
           justify-content: space-between;
           align-items: center;
           padding: 1.5rem 1rem;
+          display: none;
         }
 
         .header-inner {
@@ -122,41 +139,70 @@
           gap: 2rem;
         }
 
+        .svg-curve {
+          fill: none;
+          width: 100%;
+          display: block;
+        }
+
+        .svg-curve path {
+          fill: #0a001b;
+        }
+
+        /* 
+        #FFD700 (Gold): A bright, warm gold color would create a striking contrast against the dark, cool tone of #0a001b.
+        #FF4500 (Orange Red): A vibrant red-orange can provide a warm contrast, making it pop against the dark background.
+        #00FFFF (Cyan/Aqua): A bright cyan would create a strong contrast with the dark shade, offering a fresh, cool look.
+        #FF1493 (Deep Pink): A bright pink would stand out sharply against the dark blue, giving a vivid and energetic contrast.
+        #32CD32 (Lime Green): A bright lime green would offer a lively contrast to the deep blue, adding a fresh and vibrant feel. 
+        */
+
         .hero {
           width: 100%;
           height: 100%;
-          background: url(./images/tiles.jpg) no-repeat center top/cover;
+          min-height: 88vh;
+          /*background: url(./images/tiles.jpg) no-repeat center top/cover;*/
+          background: #0a001b;
+
+          border-top: 10px solid #2b69fb;
           background-attachment: fixed;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          padding: 5rem 1rem;
-          border-top: 3px solid #000;
-          border-bottom: 3px solid #000;
+          padding: 2rem 1rem;
+          /* border-top: 3px solid #000; */
+          /* border-bottom: 3px solid #000; */
         }
 
         /* Use AVIF if supported */
-        @supports (background-image: url(./images/tiles.avif)) {
+        /* @supports (background-image: url(./images/tiles.avif)) {
           .hero {
             background: url(./images/tiles.avif) no-repeat center top/cover;
             background-attachment: fixed;
           }
-        }
+        } */
 
-        .hero-text {
+        .hero-inner {
           width: 100%;
           max-width: 1200px;
           display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: flex-start;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
           height: 100%;
           color: #fff;
           gap: 2rem;
         }
 
-        .hero-text p {
+        @media screen and (max-width: 1200px) {
+          .hero-image {
+            display: none;
+          }
+
+        }
+
+        .hero-inner p {
           max-width: 69ch;
         }
       </style>
@@ -165,45 +211,57 @@
         <noscript>
           <div class="projects">
             <div class="projects-text">
-              <h2>Projects</h2>
+              <h2>My Work</h2>
+              <p>A collection of projects I've worked on.</p>
             </div>
           </div>
 
-          <if this="this.projects">
-            <for params="project" array="this.projects">
-              <div class="project">
-                <div class="project-wrap">
+          <div class="project-grid">
+            <if this="this.projects">
+              <for params="project" array="this.projects">
+                <div class="project">
+                  <div class="project-wrap">
+                    <div style="background-image: url(${project.avif}), url(${project.jpg})" class="project-img"
+                      :click="this.image_click(e)"
+                      data-img="background-image: url(${project.avif}), url(${project.jpg})"></div>
 
-                  <picture  class="project-img">
-                    <source srcset="${project.thumb}.avif" type="image/avif">
-                    <img alt="${project.title} screenshot" src="${project.thumb}.jpg" width="320" height="200" data-img="${project.img}" :click="this.image_click(e)"/>
-                  </picture>
 
-                  <div class="project-text">
-                    <h3>${project.title}</h3>
-                    <p>${project.text}</p>
-                    <div class="project-buttons">
-                      <for params="button" array="project.buttons">
-                        <div class="project-button">
-                          <a aria-label="${button.aria}" href="${button.href}" rel="noopener" target="_blank">
-                            <if this="button.icon === 'WebSVG'">
-                              <WebSVG></WebSVG>
-                            </if>
-                            <else-if this="button.icon === 'GITSVG'">
-                              <GITSVG></GITSVG>
-                            </else-if>
-                            <else-if this="button.icon === 'NPMSVG'">
-                              <NPMSVG></NPMSVG>
-                            </else-if>
-                          </a>
-                        </div>
-                      </for>
+                    <!-- <picture class="project-img">
+                      <source srcset="${project.thumb}.avif" type="image/avif">
+                      <img alt="${project.title} screenshot" src="${project.thumb}.jpg" width="100%" height="auto"
+                        data-img="${project.img}" :click="this.image_click(e)" />
+                    </picture> -->
+
+                    <div class="project-text">
+                      <h3>${project.title}</h3>
+                      <p>${project.text}</p>
+                      <div class="project-buttons">
+                        <for params="button" array="project.buttons">
+                          <div class="project-button">
+                            <a aria-label="${button.aria}" href="${button.href}" rel="noopener" target="_blank">
+                              <if this="button.icon === 'WebSVG'">
+                                <WebSVG></WebSVG>
+                              </if>
+                              <else-if this="button.icon === 'GITSVG'">
+                                <GITSVG></GITSVG>
+                              </else-if>
+                              <else-if this="button.icon === 'NPMSVG'">
+                                <NPMSVG></NPMSVG>
+                              </else-if>
+                            </a>
+                          </div>
+                        </for>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </for>
-          </if>
+              </for>
+            </if>
+          </div>
+
+          <svg class="svg-curve" viewBox="0 0 1440 79" xmlns="http://www.w3.org/2000/svg">
+            <path d="M-100 0C-100 0 218.416 55.835 693.5 55.835C1168.58 55.835 1487 0 1487 0V79H-100V0Z"></path>
+          </svg>
 
           <footer>
             <div class="footer-inner">
@@ -213,8 +271,7 @@
 
           <bay-modal open="${this.open_modal}">
             <if this="this.img">
-              <img alt="${this.img} screenshot" class="modal-image" this-attribute="this.setscr()"
-                :click="this.open_modal = false">
+              <div class="modal-image" this-attribute="this.setscr()" :click="this.open_modal = false"></div>
             </if>
           </bay-modal>
 
@@ -280,12 +337,11 @@
         .projects {
           display: block;
           width: 100%;
-          height: 100%;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          padding: 5rem 1rem 3rem;
+          padding: 3rem 1rem;
         }
 
         .projects-text {
@@ -294,16 +350,15 @@
           display: flex;
           flex-direction: column;
           justify-content: center;
-          align-items: flex-start;
+          align-items: center;
           height: 100%;
-          color: #fff;
-          gap: 2rem;
+          gap: 1rem;
         }
 
         h2 {
           font-size: 3rem;
           line-height: 1;
-          font-weight: 100;
+          font-weight: bold;
         }
 
         h3 {
@@ -312,42 +367,89 @@
           font-weight: 100;
         }
 
+        .project-grid {
+          margin: 0 auto 6rem;
+          display: grid;
+          max-width: calc(1280px + 2rem);
+          padding: 0 1rem;
+          width: 100%;
+          grid-template-columns: 1fr 1fr;
+          gap: 3rem;
+        }
+
+        @media screen and (max-width: 1320px) {
+          .project-grid {
+            gap: 1rem;
+          }
+        }
+
+        @media screen and (max-width: 768px) {
+          .project-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+
         .project {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 3rem 1rem;
-          border-bottom: 3px solid #16191d;
-          background: #101214;
+          margin: 0 auto;
+          padding: 1rem;
+          border-radius: 2rem;
+          border: 1px solid #2b69fb1f;
+          box-shadow: 0 0 1rem 1rem #2b69fb0f;
         }
 
         .project-wrap {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          flex-direction: row;
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr;
+          position: relative;
           width: 100%;
-          max-width: 1200px;
-          margin: auto;
+          /* Example width */
+          height: auto;
+          /* Example height */
+          overflow: hidden;
         }
 
-        @media screen and (max-width: 768px) {
-          .project-wrap {
-            flex-direction: column;
-          }
+        .project-img,
+        .project-text {
+          grid-column: 1 / -1;
+          grid-row: 1 / -1;
+          position: relative;
         }
 
         .project-img {
-          width: calc(100% / 3.75);
+          display: flex;
+          width: 100%;
           height: auto;
-          cursor: pointer;
+          background-size: contain;
+          background-repeat: no-repeat;
+
+        }
+
+        /* @media screen and (max-width: 768px) {
+          .project-wrap {
+            flex-direction: column;
+          }
+        } */
+
+        .project-img {
+          /* width: calc(100% / 3.75);
+          height: auto;
+          cursor: pointer; */
         }
 
         @media screen and (max-width: 768px) {
-          .project-img {
+          /* .project-img {
             width: 100%;
             padding: 0rem 0rem 2rem;
-          }
+          } */
+        }
+
+        .project-img img {
+          position: absolute;
+          width: 100%;
+          height: auto;
+          border-radius: .8rem;
+          border: 1px solid #2b69fb1f;
         }
 
         .project-text {
@@ -357,7 +459,10 @@
           align-items: flex-start;
           gap: 1rem;
           padding: 0rem 2rem;
-          color: #fff;
+          color: #0a001b;
+          margin-top: 47%;
+          background: #fafeff;
+          box-shadow: 0 0 4rem 6rem #fafeff;
         }
 
         @media screen and (max-width: 768px) {
@@ -375,7 +480,7 @@
         }
 
         a {
-          color: #fff;
+          color: #0a001b;
           text-decoration: none;
         }
 
@@ -383,6 +488,11 @@
           max-width: 90vw;
           max-height: 90vh;
           cursor: pointer;
+          background-size: contain;
+          background-position: center;
+          width: 100vw;
+          height: 100vh;
+          background-repeat: no-repeat;
         }
 
         footer {
@@ -390,17 +500,18 @@
           justify-content: center;
           align-items: center;
           padding: 5rem 1rem;
-          background: #16191d;
+          background: #0a001b;
         }
 
         .footer-inner {
           display: flex;
-          justify-content: flex-start;
+          justify-content: center;
           align-items: center;
           width: 100%;
           max-width: 1200px;
           margin: auto;
           font-size: 1rem;
+          color: #fff;
         }
       </style>
 
@@ -409,6 +520,7 @@
           this.img = '';
           this.open_modal = false;
           this.image_click = e => {
+
             let data = e.target.dataset;
             if (data.img) {
               this.img = data.img;
@@ -434,7 +546,8 @@
           });
 
           this.setscr = () => {
-            return this.img ? `src="${this.img}"` : '';
+            console.log(this.img);
+            return this.img ? `style="${this.img}"` : '';
           };
         </script>
         <script mounted>

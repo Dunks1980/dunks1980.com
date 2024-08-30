@@ -2,8 +2,8 @@
   "data": [
     {
       "title": "Domposer",
-      "img": "./images/domposer.jpg",
-      "thumb": "./thumbs/domposer",
+      "jpg": "./images/domposer.jpg",
+      "avif": "./images/domposer.avif",
       "text": "Domposer is a website builder which has a UI that allows you to quickly add and rearrange HTML and CSS, upload and download created projects and files, login to save up to 5 projects and can be installed as a progressive web application. The stack is Laravel for the backend/API's and vanilla JS for the frontend. The Github repository for this is private at the moment.",
       "buttons": [
         {
@@ -16,8 +16,8 @@
     },
     {
       "title": "Bay.js",
-      "img": "./images/bay.jpg",
-      "thumb": "./thumbs/bay",
+      "jpg": "./images/bay.jpg",
+      "avif": "./images/bay.avif",
       "text": "An easy to use, lightweight library for web-components. It doesn't need a build step but can be included in a build step if you want to. It's a great way to create reusable components for your projects. It's available as a NPM package and doesn't use any dependencies and is 11kb minified. It also doesn't use eval or new Function so can be used in strict CSP policies without a build step.",
       "buttons": [
         {
@@ -39,8 +39,8 @@
     },
     {
       "title": "Cookiemunch",
-      "img": "./images/cookiemunch.jpg",
-      "thumb": "./thumbs/cookiemunch",
+      "jpg": "./images/cookiemunch.jpg",
+      "avif": "./images/cookiemunch.avif",
       "text": "A simple, customizable, minimal setup cookie plugin that allows your users to select which cookies to accept or decline. This was created with vanilla JS, SCSS and Parcel Bundler and is available as a NPM package and the git repository makes any type of customization to code and themes possible.",
       "buttons": [
         {
@@ -62,8 +62,8 @@
     },
     {
       "title": "Screen time converter",
-      "img": "./images/screentimeconverter.jpg",
-      "thumb": "./thumbs/screentimeconverter",
+      "jpg": "./images/screentimeconverter.jpg",
+      "avif": "./images/screentimeconverter.avif",
       "text": "Count the time your children spend on activities like homework, chores and exercise and convert it into screen time. I created this with Vue.js and the Howlr library to add the interactive clock sounds. It can be installed as a progressive web application. The git repository for this one is private at the moment.",
       "buttons": [
         {
@@ -75,8 +75,8 @@
     },
     {
       "title": "inline.svg",
-      "img": "./images/inlineSVG.jpg",
-      "thumb": "./thumbs/inlineSVG",
+      "jpg": "./images/inlineSVG.jpg",
+      "avif": "./images/inlineSVG.avif",
       "text": "This is a NPM package that takes an SVG file and renders it as an inline SVG to the DOM and can also render HTML files too. You can also pass data to it that renders where it's specified inside double curly braces. I created this to solve problems with some frameworks and bundlers when using inline SVG files and to keep code cleaner and easier to read.",
       "buttons": [
         {
@@ -98,8 +98,8 @@
     },
     {
       "title": "PCDJ",
-      "img": "./images/dex3.jpg",
-      "thumb": "./thumbs/dex3",
+      "jpg": "./images/dex3.jpg",
+      "avif": "./images/dex3.avif",
       "text": "I've had the opportunity to work with PCDJ DJ software, where I contributed to the design and skinning for various products in their range, including DEX-3, DEX-3 RE DJ software, LYRX karaoke software, and RED Mobile 3 DJ software. I also had a hand in refining the PCDJ logo, ensuring it aligns with the overall aesthetic of the brand.",
       "buttons": [
         {
