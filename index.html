@@ -443,11 +443,17 @@
           display: flex;
           width: 100%;
           height: auto;
-          background-size: contain;
+          background-size: 100% auto;
+          background-position: top center;
           background-repeat: no-repeat;
           border-radius: .8rem;
           border: 1px solid #2b69fb1f;
           cursor: pointer;
+          transition: all 0.3s ease-in-out;
+        }
+
+        .project-img:hover {
+          background-size: 110% auto;
         }
 
         /* @media screen and (max-width: 768px) {
@@ -645,7 +651,7 @@
           // Start updating the array
           setTimeout(() => {
             updateArrayWithDelay();
-          }, 0);
+          }, 60);
         </script>
       </noscript>
 
