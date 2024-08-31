@@ -41,11 +41,25 @@
       <style>
         .wrap * {
           opacity: 0;
-          transition: opacity 0.5s ease-in-out;
+          /* transition: opacity 0.3s ease-in-out; */
         }
 
         .wrap.loaded * {
           opacity: 1;
+        }
+
+        #welcome {
+          display: inline-block;
+          box-sizing: border-box;
+          max-height: calc(180px - 2rem);
+          width: auto;
+        }
+
+        @media screen and (max-width: 768px) {
+          #welcome {
+            max-height: calc(150px - 2rem);
+            width: 100%;
+          }
         }
       </style>
       <div class="wrap ${this.loaded}">
@@ -53,40 +67,36 @@
           <h1 id="title">loading...</h1>
         </dsd>
 
-        <header>
-          <div class="header-inner">
-            <div class="header-logo">
-              <LOGOSVG></LOGOSVG>
-            </div>
-            <div class="header-links">
-              <!-- <a aria-label="email" rel="noopener" target="_blank"
-                href="mailto:info@dunks1980.com?subject=Mail from dunks1980.com">
-                <EMAILSVG></EMAILSVG>
-              </a> -->
-              <a aria-label="github" rel="noopener" target="_blank" href="https://github.com/Dunks1980/">
-                <GITSVG></GITSVG>
-              </a>
-              <a aria-label="npm" rel="noopener" target="_blank" href="https://www.npmjs.com/~dunks1980">
-                <NPMSVG></NPMSVG>
-              </a>
-            </div>
-          </div>
-        </header>
+
 
         <div class="hero">
+          <!-- <header>
+            <div class="header-inner">
+              <div class="header-logo">
+                <LOGOSVG></LOGOSVG>
+              </div>
+            </div>
+          </header> -->
           <div class="hero-inner">
-            <div>
-              <bay-welcome bay="/components/welcome.html"></bay-welcome>
+            <div class="hero-text">
+              <bay-welcome bay="/components/welcome.html">
+                <svg xmlns="http://www.w3.org/2000/svg" id="welcome" width="6.30667in" height="1.27333in"
+                  viewBox="0 0 1892 382"></svg>
+              </bay-welcome>
               <div>
-                <p>My name is Ian Dunkerley, a front-end developer based in Torquay, Devon, UK. I have worked on a wide
-                  range of front-end projects, from DJ applications to eCommerce booking platforms, with a focus on
-                  creating clean, well-crafted interfaces that not only look great but also provide a seamless user
-                  experience.</p>
+                <p>
+                  <if this="this.words_els">
+                    <map array="this.words_els" params="word">
+                      ${$bay.decode(word)}
+                    </map>
+                  </if>
+                </p>
               </div>
             </div>
             <div class="hero-image">
               <picture>
                 <source srcset="./images/hero_setup.avif" type="image/avif">
+                <source srcset="./images/hero_setup.webp" type="image/webp">
                 <img width="500" height="500" src="./images/hero_setup.jpg" alt="hero image">
               </picture>
             </div>
@@ -111,10 +121,10 @@
 
         header {
           display: flex;
+          width: 100%;
           justify-content: space-between;
           align-items: center;
           padding: 1.5rem 1rem;
-          display: none;
         }
 
         .header-inner {
@@ -171,6 +181,7 @@
           justify-content: center;
           align-items: center;
           padding: 2rem 1rem;
+          margin-bottom: -2px;
           /* border-top: 3px solid #000; */
           /* border-bottom: 3px solid #000; */
         }
@@ -193,6 +204,14 @@
           height: 100%;
           color: #fff;
           gap: 2rem;
+        }
+
+        .hero-text {
+          width: 100%;
+          height: 100%;
+          display: grid;
+          grid-template-rows: 1fr 1fr;
+          gap: 1rem;
         }
 
         @media screen and (max-width: 1200px) {
@@ -221,16 +240,9 @@
               <for params="project" array="this.projects">
                 <div class="project">
                   <div class="project-wrap">
-                    <div style="background-image: url(${project.avif}), url(${project.jpg})" class="project-img"
+                    <div style="background-image: url(${project.avif}), url(${project.webp})" class="project-img"
                       :click="this.image_click(e)"
-                      data-img="background-image: url(${project.avif}), url(${project.jpg})"></div>
-
-
-                    <!-- <picture class="project-img">
-                      <source srcset="${project.thumb}.avif" type="image/avif">
-                      <img alt="${project.title} screenshot" src="${project.thumb}.jpg" width="100%" height="auto"
-                        data-img="${project.img}" :click="this.image_click(e)" />
-                    </picture> -->
+                      data-img="background-image: url(${project.avif}), url(${project.webp})"></div>
 
                     <div class="project-text">
                       <h3>${project.title}</h3>
@@ -265,8 +277,19 @@
 
           <footer>
             <div class="footer-inner">
-              © ${new Date().getFullYear()} dunks1980.com
+              <div class="footer-copy">
+                © ${new Date().getFullYear()} dunks1980.com
+              </div>
+              <div class="footer-links">
+                <a aria-label="github" rel="noopener" target="_blank" href="https://github.com/Dunks1980/">
+                  <GITSVG></GITSVG>
+                </a>
+                <a aria-label="npm" rel="noopener" target="_blank" href="https://www.npmjs.com/~dunks1980">
+                  <NPMSVG></NPMSVG>
+                </a>
+              </div>
             </div>
+
           </footer>
 
           <bay-modal open="${this.open_modal}">
@@ -422,7 +445,9 @@
           height: auto;
           background-size: contain;
           background-repeat: no-repeat;
-
+          border-radius: .8rem;
+          border: 1px solid #2b69fb1f;
+          cursor: pointer;
         }
 
         /* @media screen and (max-width: 768px) {
@@ -499,19 +524,51 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          padding: 5rem 1rem;
+
           background: #0a001b;
+          margin-top: -2px;
+        }
+
+        footer a {
+          color: #fff;
+          text-decoration: none;
         }
 
         .footer-inner {
           display: flex;
-          justify-content: center;
+          justify-content: space-between;
           align-items: center;
           width: 100%;
-          max-width: 1200px;
+          max-width: 1280px;
+          padding: 5rem 1rem;
           margin: auto;
-          font-size: 1rem;
+          font-size: 1.5rem;
           color: #fff;
+        }
+
+        .footer-links {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 1.5rem;
+        }
+
+        .word.word.word {
+          display: inline-block;
+          opacity: 0;
+          transform: translateX(.5rem);
+          /* Initial position for bounce */
+          transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.6s ease-in-out;
+        }
+
+        .word.word.word.visible {
+          transform: translateX(0);
+          /* End position for bounce */
+          opacity: 1;
+        }
+
+        bay-welcome {
+          align-self: flex-end;
         }
       </style>
 
@@ -554,6 +611,38 @@
           setTimeout(() => {
             this.loaded = "loaded";
           }, 10);
+
+
+          // The text you want to display
+          const text =
+            "My name is Ian Dunkerley, a front-end developer based in Torquay, Devon, UK. I have worked on a wide range of front-end projects, from DJ applications to eCommerce booking platforms, with a focus on creating clean, well-crafted interfaces that not only look great but also provide a seamless user experience.";
+
+          // Split the text into an array of words
+          const words = text.split(' ');
+
+          this.words_els = [];
+
+          this.words_els = words.map((word, i) => {
+            return `<span class="word">${word}</span> `;
+          });
+
+          // Function to update the array to include the 'visible' class with a delay
+          const updateArrayWithDelay = (index = 0) => {
+            if (index < this.words_els.length) {
+              // Update the specific word's span to include the 'visible' class
+              this.words_els[index] = this.words_els[index].replace('class="word"', 'class="word visible"');
+
+              // Schedule the next word to be updated
+              setTimeout(() => {
+                updateArrayWithDelay(index + 1);
+              }, 30); // Adjust the delay in milliseconds to control the speed
+            }
+          };
+
+          // Start updating the array
+          setTimeout(() => {
+            updateArrayWithDelay();
+          }, 0);
         </script>
       </noscript>
 
