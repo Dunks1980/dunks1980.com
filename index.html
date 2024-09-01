@@ -234,37 +234,32 @@
           </div>
 
           <div class="project-grid">
-            <for params="project" array="this.projects">
-              <div class="project">
-                <div class="project-wrap">
-                  <div style="background-image: url(${project.avif}), url(${project.webp})" class="project-img"
-                    :click="this.image_click(e)"
-                    data-img="background-image: url(${project.avif}), url(${project.webp})"></div>
-
-                  <div class="project-text">
-                    <h3>${project.title}</h3>
-                    <p>${project.text}</p>
-                    <div class="project-buttons">
-                      <for params="button" array="project.buttons">
-                        <div class="project-button">
-                          <a aria-label="${button.aria}" href="${button.href}" rel="noopener" target="_blank">
-                            <if this="button.icon === 'WebSVG'">
-                              <WebSVG></WebSVG>
-                            </if>
-                            <else-if this="button.icon === 'GITSVG'">
-                              <GITSVG></GITSVG>
-                            </else-if>
-                            <else-if this="button.icon === 'NPMSVG'">
-                              <NPMSVG></NPMSVG>
-                            </else-if>
-                          </a>
-                        </div>
-                      </for>
+            <div class="project" bay-for="this.projects" params="project">
+              <div class="project-wrap">
+                <div style="background-image: url(${project.avif}), url(${project.webp})" class="project-img"
+                  :click="this.image_click(e)" data-img="background-image: url(${project.avif}), url(${project.webp})">
+                </div>
+                <div class="project-text">
+                  <h3>${project.title}</h3>
+                  <p>${project.text}</p>
+                  <div class="project-buttons">
+                    <div class="project-button" bay-for="project.buttons" params="button">
+                      <a aria-label="${button.aria}" href="${button.href}" rel="noopener" target="_blank">
+                        <if this="button.icon === 'WebSVG'">
+                          <WebSVG></WebSVG>
+                        </if>
+                        <else-if this="button.icon === 'GITSVG'">
+                          <GITSVG></GITSVG>
+                        </else-if>
+                        <else-if this="button.icon === 'NPMSVG'">
+                          <NPMSVG></NPMSVG>
+                        </else-if>
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
-            </for>
+            </div>
           </div>
 
           <svg class="svg-curve" viewBox="0 0 1440 79" xmlns="http://www.w3.org/2000/svg">
