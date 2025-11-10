@@ -10,6 +10,12 @@
   <link rel="icon" href="./favicon.ico">
   <link rel="preload" href="./fonts/Montserrat/Montserrat-Regular.ttf" as="font" type="font/ttf"
     crossorigin="anonymous">
+
+  <!-- preload hero image -->
+  <link rel="preload" href="./images/hero_setup.avif" as="image" type="image/avif">
+  <link rel="preload" href="./images/hero_setup.webp" as="image" type="image/webp">
+  <link rel="preload" href="./images/hero_setup.jpg" as="image" type="image/jpeg">
+
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <script type="module" src="main.js" defer></script>
@@ -26,8 +32,12 @@
       line-height: 1.6;
       margin: 0;
       padding: 0;
-      background-color: #fafeff;
       color: #0a001b;
+      font-size: 1rem;
+    }
+
+    @media screen and (max-width: 768px) {
+       body {font-size: 0.8em;}
     }
   </style>
 
@@ -38,7 +48,6 @@
   <bay-component bay="dsd">
     <template shadowrootmode="open">
       <style>
-
         * {
           box-sizing: border-box;
           margin: 0;
@@ -86,7 +95,8 @@
 
         .hero-inner {
           width: 100%;
-          max-width: 1200px;
+          max-width: calc(1280px + 2rem);
+          padding: 1rem;
           display: flex;
           flex-direction: row;
           justify-content: space-between;
@@ -94,6 +104,29 @@
           height: 100%;
           color: #fff;
           gap: 2rem;
+        }
+
+        @media screen and (max-width: 1200px) {
+          .hero-inner {
+            flex-direction: column-reverse;
+            gap: 0rem;
+            padding: 0rem;
+          }
+
+          .hero-image {
+            margin-top: 0rem;
+            margin-bottom: -3rem;
+          }
+
+          .hero-image img {
+            width: 100%;
+            height: auto;
+          }
+
+          .hero-text * {
+            margin: 0 auto;
+            text-align: left;
+          }
         }
 
         .hero-text {
@@ -104,22 +137,35 @@
           gap: 1rem;
         }
 
+        @media screen and (max-width: 1200px) {
+          .hero-text {
+            padding: 1rem;
+            grid-template-rows: auto 1fr;
+          }
+        }
+
         .hero-image {
           animation: fadeIn .3s ease-in-out;
         }
 
+        .hero-image img {
+          mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 66%);
+          -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 66%);
+        }
+
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+          from {
+            opacity: 0;
+          }
+
+          to {
+            opacity: 1;
+          }
         }
 
         @media screen and (max-width: 1200px) {
           .hero-image {
-            display: none;
+            /* display: none; */
           }
         }
 
@@ -352,6 +398,7 @@
         bay-welcome {
           align-self: flex-end;
         }
+
       </style>
 
       <dsd>
@@ -536,7 +583,7 @@
           }, 10);
 
           const text =
-            "My name is Ian Dunkerley, a front-end developer based in Torquay, Devon, UK. I have worked on a wide range of front-end projects, from DJ applications to eCommerce booking platforms, with a focus on creating clean, well-crafted interfaces that not only look great but also provide a seamless user experience.";
+            `My name is Ian Dunkerley, a front-end developer based in Torquay, Devon, UK. I have worked on a wide range of front-end projects, from DJ applications to eCommerce booking platforms, with a focus on creating clean, well-crafted interfaces that not only look great but also provide a seamless user experience.`;
 
           const words = text.split(' ');
           this.words_els = [];
