@@ -47,7 +47,7 @@
       "text": "A simple, customizable, minimal setup cookie plugin that allows your users to select which cookies to accept or decline. This was created with vanilla JS, SCSS and Parcel Bundler and is available as a NPM package and the git repository makes any type of customization to code and themes possible.",
       "buttons": [
         {
-          "href": "https://cookiemunch.dunks1980.com",
+          "href": "https://cookiemunch.dunkerley.dev/",
           "aria": "cookiemunch",
           "icon": "WebSVG"
         },
@@ -71,7 +71,7 @@
       "text": "Count the time your children spend on activities like homework, chores and exercise and convert it into screen time. I created this with Vue.js and the Howlr library to add the interactive clock sounds. It can be installed as a progressive web application. The git repository for this one is private at the moment.",
       "buttons": [
         {
-          "href": "https://screentimeconverter.com",
+          "href": "https://screentimeconverter.dunkerley.dev/",
           "aria": "screentimeconverter",
           "icon": "WebSVG"
         }
@@ -85,7 +85,7 @@
       "text": "This is a NPM package that takes an SVG file and renders it as an inline SVG to the DOM and can also render HTML files too. You can also pass data to it that renders where it's specified inside double curly braces. I created this to solve problems with some frameworks and bundlers when using inline SVG files and to keep code cleaner and easier to read.",
       "buttons": [
         {
-          "href": "https://inlinesvg.dunks1980.com/",
+          "href": "https://inlinesvg.dunkerley.dev/",
           "aria": "inlinesvg",
           "icon": "WebSVG"
         },
