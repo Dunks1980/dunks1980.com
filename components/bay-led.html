@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h2>LED Display</h2>
     <div class="leds">
       <!-- Check if this.leds is an array before iterating -->
       <if this="Array.isArray(this.leds) && this.leds.length > 0">
@@ -31,7 +30,7 @@
       7: Math.round(Math.random()),
     }));
 
-    this.speed = 500; // Speed in milliseconds
+    this.speed = 120; // Speed in milliseconds
     this.lastUpdateTime = 0;
 
     this.randomizeLeds = () => {
