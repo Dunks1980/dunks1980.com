@@ -230,12 +230,19 @@
           .project-grid {
             grid-template-columns: 1fr 1fr;
           }
+          .hidden-project {
+            display: none;
+          }
         }
 
         @media screen and (max-width: 768px) {
           .project-grid {
             grid-template-columns: 1fr;
           }
+        }
+
+        .hidden-project {
+          opacity: 0;
         }
 
         .project {
@@ -465,7 +472,9 @@
         </div>
 
         <div class="project-grid">
-          <div class="project" bay-for="this.projects" params="project">
+          <for array="this.projects" params="project">
+         
+            <div class="${!project.title ? 'hidden-project' : 'project'}">
             <div class="project-wrap">
               <div style="background-image: url(${project.avif}), url(${project.webp})" class="project-img"
                 :click="this.image_click(e)" data-img="background-image: url(${project.avif}), url(${project.webp})">
@@ -490,7 +499,8 @@
                 </a>
               </div>
             </div>
-          </div>
+            </div>
+          </for>
         </div>
 
         <svg class="svg-curve" viewBox="0 0 1440 79" xmlns="http://www.w3.org/2000/svg">

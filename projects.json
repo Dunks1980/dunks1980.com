@@ -102,6 +102,21 @@
       ]
     },
     {
+      "title": "360VTP",
+      "jpg": "./images/360vtp.dunkerley.dev_.jpg",
+      "avif": "./images/360vtp.dunkerley.dev_.avif",
+      "webp": "./images/360vtp.dunkerley.dev_.webp",
+      "text": "360VTP is a website I built to showcase interactive 360-degree panoramic photography and virtual tours. Visitors can explore properties, interiors and outdoor locations as though they were there. I used HTML, CSS, JavaScript and AI-assisted development to build and improve the site, integrating panoramic viewers to create an immersive and easy-to-use experience.",
+      "buttons": [
+        {
+          "href": "https://360vtp.dunkerley.dev/",
+          "aria": "360vtp",
+          "icon": "WebSVG"
+        }
+      ]
+    },
+    {},
+    {
       "title": "PCDJ",
       "jpg": "./images/dex3.jpg",
       "avif": "./images/dex3.avif",
