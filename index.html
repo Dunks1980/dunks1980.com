@@ -442,7 +442,7 @@
               <div>
                 <p>
                   <map array="this.words_els" params="word">
-                    ${$bay.decode(word)}
+                    ${$bay.html(word)}
                   </map>
                 </p>
               </div>
@@ -523,7 +523,7 @@
 
         <bay-modal open="${this.open_modal}">
           <if this="this.img">
-            <div class="modal-image" this-attribute="this.setscr()" :click="this.open_modal = false"></div>
+            <div class="modal-image" this-attribute="$bay.html(this.setscr())" :click="this.open_modal = false"></div>
           </if>
         </bay-modal>
 
