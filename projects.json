@@ -5,7 +5,7 @@
       "jpg": "./images/domposer.jpg",
       "avif": "./images/domposer.avif",
       "webp": "./images/domposer.webp",
-      "text": "Domposer is a website builder which has a UI that allows you to quickly add and rearrange HTML and CSS, upload and download created projects and files, login to save up to 5 projects and can be installed as a progressive web application. The stack is Laravel for the backend/API's and vanilla JS for the frontend. The Github repository for this is private at the moment.",
+      "text": "Domposer is a visual website builder that combines drag-and-drop editing with AI-powered development. Bring your own AI, from cloud providers to local models like Ollama, to create, edit and transform entire pages using natural language. No AI lock-in, just complete creative freedom. Built with Laravel and vanilla JavaScript, with project management, import/export and PWA support.",
       "buttons": [
         {
           "label": "domposer",

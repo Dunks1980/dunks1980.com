@@ -31,7 +31,11 @@
       margin: 0;
       padding: 0;
       color: #0a001b;
-      font-size: 1rem;
+      font-size: 1em;
+    }
+
+    :root {
+      --small-copy-font-size: .825em;
     }
 
     @media screen and (max-width: 768px) {
@@ -46,6 +50,7 @@
   <bay-component bay="dsd">
     <template shadowrootmode="open">
       <style>
+
         * {
           box-sizing: border-box;
           margin: 0;
@@ -141,6 +146,10 @@
           gap: 1rem;
         }
 
+        .hero-text p {
+          font-size: var(--small-copy-font-size, 1rem);
+        }
+
         @media screen and (max-width: 1200px) {
           .hero-text {
             padding: 1rem;
@@ -196,6 +205,10 @@
           align-items: center;
           height: 100%;
           gap: 1rem;
+        }
+
+        .projects-text p {
+          font-size: var(--small-copy-font-size, 1rem);
         }
 
         h2 {
@@ -317,6 +330,7 @@
 
         .project-parragraph {
           margin-bottom: 3.5rem;
+          font-size: var(--small-copy-font-size, 1rem);
         }
 
         @media screen and (max-width: 768px) {
@@ -383,7 +397,7 @@
         }
 
         .footer-copy {
-          font-size: 1rem;
+          font-size: var(--small-copy-font-size, 1rem);
         }
 
         .footer-links {
